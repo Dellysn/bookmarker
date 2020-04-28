@@ -6,63 +6,87 @@
   --color3: #e5989bff;
   --color4: #b5838dff;
   --color5: #6d6875ff;
+  --color6: #fb656aff;
+  --transition: all 300ms ease-in-out
 }
 
 html {
   margin: 0;
   padding: 0;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   box-sizing: border-box;
 }
 
 body {
-  height: 100%;
-  width: 100%;
-}
-
-body,
-* {
+  padding: inherit;
   margin: 0;
-  padding: 0;
-  /* overflow-x: hidden; */
-}
+  box-sizing: inherit;
 
-a {
-  text-decoration: none;
-  color: #f0f0f0;
-}
 
-a:hover {
-  text-decoration: underline;
-  color: #e76565;
 }
-
 
 .nav {
   width: 100%;
+  display: flex;
+  height: 50px;
+  align-items: center;
+  justify-content: space-between;
   background-color: var(--color2);
+  margin-bottom: 1rem;
   position: fixed;
   top: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-
-  z-index: 999;
-
+  border-bottom: solid 1px #fff;
 
 }
 
-.nav .nav-brand {
+.nav-menu {
+  width: 100%;
+  position: fixed;
+  /* top: -100% */
+  top: 0;
+  transition: var(--transition);
+  transform: translateY(-800px);
+  background-color: var(--color2);
+  list-style: none;
+  padding: 0;
+}
+
+.nav-menu .nav-item:first-child {
+  margin-top: 1rem;
+}
+
+.nav-menu .nav-item {
+  margin-left: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.nav-menu.show {
+  transform: translateY(35px);
+}
+
+.nav-brand {
   margin-left: 1rem;
 }
 
-.nav .toggle {
+.clear {
+  border: none;
+  background: var(--color1);
+  padding: 1rem;
+  color: #fff;
+  outline: none;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.clear:active {
+  border: solid 1px #fff;
+  color: var(--color6);
+}
+
+.toggle {
+  color: #fff;
   margin-right: 1rem;
-  font-size: 2rem;
-  color: #f0f0f0;
-  transition: all 500ms;
+  font-size: 1.5rem;
+  transition: var(--transition);
 }
 
 .toggle.rotate {
@@ -73,192 +97,125 @@ a:hover {
   display: none;
 }
 
-.nav-menu {
-  list-style-type: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: var(--color2);
-  padding: 1.5rem;
-  position: fixed;
-  width: 90%;
-  height: 50%;
-  top: 4%;
-  transition: all 500ms;
-  transform: translateX(-1200px);
-  z-index: -999;
-  /* border-top: solid 1px #ffffff; */
-}
-
-.nav-menu.show {
-  width: 1;
-  transform: translateX(0);
-}
-
-.nav-menu .nav-item {
-  color: #f0f0f0;
-  width: 100%;
-}
-
-.clear {
-  padding: .8rem;
-  background: var(--color1);
-  border: none;
-  outline: none;
-  color: #fff;
-  transition: all 200ms;
-
-}
-
-.clear:active {
-  color: #e76565;
-  border: solid 1px #fff;
-}
-
-.nav-menu .nav-item:not(:last-child) {
-  margin-bottom: 1rem;
-}
-
-section {
-  /* min-height: 100%;
-  margin-bottom: -100px; */
-  min-height: calc(100vh - 70px);
-}
-
-.container {
-  max-width: 968px;
-  height: 100%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-
-
 #bookmark-form {
-  margin-top: 0;
-  height: 35vh;
-  display: flex;
-  flex-direction: column;
+  margin-top: 6rem;
   width: 100%;
-  align-items: center;
-  margin-top: 5rem;
-
 }
 
 .form-group {
-  /* width: 50%; */
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  background: none;
+  align-items: center;
+  width: 100%;
 }
 
 .form-group label {
-  font-size: 1.4rem;
-  padding: 1rem;
-  font-weight: 500;
-  color: rgb(231, 101, 101);
+  padding: .9rem;
+  font-size: 1.2rem;
+  color: var(--color6);
 }
 
 .form-group input {
-  padding: 0.65rem;
-  width: 100%;
-  border: solid 1px var(--color1);
-  outline: none;
+  padding: .5rem;
+  border: solid 1px var(--color2)
 }
 
 .form-group button {
-  margin-top: 1rem;
+  margin: .9rem;
   background: none;
-  padding: 0.65rem;
-  width: 100%;
-  border: solid 1px var(--color1);
-  transition: all 200ms;
+  border: solid 1px var(--color2);
+  padding: .7rem;
+  color: var(--color5);
+  transition: var(--transition);
+  outline: 0;
 }
 
+.form-group button:active,
 .form-group button:hover {
-  background: var(--color1);
-  color: #fff;
+  background: var(--color2);
+}
+
+.h1-heading {
+  text-align: center;
+  width: 100%;
+  color: var(--color5);
+
+
 }
 
 #bookmark {
-  /* height: 65vh; */
-  margin-top: 2rem;
-  min-height: 100%;
+  list-style-type: none;
+  padding: 0;
   width: 100%;
-  color: rgb(231, 101, 101);
-}
-
-#bookmark ul {
-  height: auto;
-  width: 100vw;
-  list-style: none;
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: scroll;
-  ;
-}
 
-#bookmark li:first-child {
-  margin-top: 1rem;
+
 }
 
 #bookmark li {
   background-color: var(--color1);
-  padding: 2rem;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  margin-bottom: 1rem;
-  width: 1;
-  overflow-x: auto;
-  height: auto;
+  width: 80%;
+  margin-bottom: 2rem;
+  padding: .9rem;
+  box-shadow: 0px 19px 75px -47px var(--color5);
+  overflow-x: scroll;
+
 }
 
-#bookmark li p>.bookmark-link {
-  text-decoration: none;
+#bookmark li>h4,
+small {
+  color: var(--color6);
+}
+
+
+#bookmark li>h4,
+p {
+  margin: 0;
+}
+
+#bookmark li p a {
   display: block;
-  padding: 1rem 0;
+  margin: .9rem auto;
+
+}
+
+a {
+
+  text-decoration: none;
+  color: #fff;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--color6);
+}
+
+section {
+
+  min-height: calc(100vh - 70px);
+
 }
 
 footer {
   width: 100%;
-  background-color: var(--color2);
 
+  background-color: var(--color2);
+  margin: 0;
+  color: #fff;
 }
 
 footer h4 {
-  padding: 1.5rem;
-  color: #fff;
-  text-align: center;
   width: 100%;
+  text-align: center;
+  margin: 0;
+  padding-top: 1rem;
+
 }
 
-@media (min-width:500px) {
-  .nav-menu {
 
-    top: 4%;
-
-
-  }
-}
-
-@media (min-width:768px) {
-  .nav-menu {
-
-    width: 100%;
-    height: 50%;
-
-
-  }
-}
 
 @media (min-width:1000px) {
   nav.nav {
@@ -293,4 +250,24 @@ footer h4 {
   #bookmark-form {
     margin-top: 6rem;
   }
+
+  .container {
+    max-width: 986px;
+    margin: auto;
+
+  }
+
+  #bookmark {
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  #bookmark li {
+    margin-left: 1rem;
+    width: 20%;
+
+
+  }
+
 }

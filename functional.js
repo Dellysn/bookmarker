@@ -1,3 +1,7 @@
+/**
+ * @param{object} check for data in localStorage, if null, set the variable to an array
+ *
+ */
 const bookmarkArray = localStorage.getItem("bookmarks")
   ? JSON.parse(localStorage.getItem("bookmarks"))
   : [];
@@ -48,6 +52,7 @@ let displayBookmarks = function (output) {
 
   ul.innerHTML = list;
 };
+
 let saveBookmarkToDatabase = function (bookmarks) {
   //   check for existing database
   bookmarkArray.push(bookmarks);
@@ -73,7 +78,7 @@ let getFormInputs = function () {
 let clearBookmarks = function () {
   if (localStorage.getItem("bookmarks")) {
     localStorage.removeItem("bookmarks");
-    window.location.href = "/index.html";
+    window.location.href = "/";
   } else {
     return false;
   }
