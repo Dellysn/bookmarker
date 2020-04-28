@@ -3,8 +3,6 @@ function Bookmarker(name, url) {
   this.url = url;
 }
 Bookmarker.prototype.saveBookmarks = function (book) {
-  //   console.log(book);
-
   if (localStorage.getItem("bookmarks") === null) {
     let bookmarks = [];
     bookmarks.push(book);
@@ -37,17 +35,6 @@ UI.prototype.displayBookmarks = function () {
     ul.innerHTML += bookmark.join(" ");
     bookmarkList.appendChild(ul);
   }
-
-  //   li.innerHTML = `
-
-  //         <h4>
-  //         ${bookmark.name},
-  //         </h4>
-  //            <p> ${bookmark.url}</p>
-
-  //           `;
-  //   ul.appendChild(li);
-  //   bookmarkList.appendChild(ul);
 };
 
 const bookmark = new Bookmarker();

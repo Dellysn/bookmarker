@@ -1,128 +1,296 @@
+:root {
+
+  /* HEX */
+  --color1: #ffcdb2ff;
+  --color2: #ffb4a2ff;
+  --color3: #e5989bff;
+  --color4: #b5838dff;
+  --color5: #6d6875ff;
+}
+
 html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  width: 100%;
 }
 
 body,
 * {
-    margin: 0;
-    padding: 0;
-    /* overflow-x: hidden; */
+  margin: 0;
+  padding: 0;
+  /* overflow-x: hidden; */
 }
 
-.navigation {
-    width: 100%;
-    background: rgba(6, 251, 137, 0.842);
+a {
+  text-decoration: none;
+  color: #f0f0f0;
 }
 
-.navigation .nav-menu {
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+a:hover {
+  text-decoration: underline;
+  color: #e76565;
+}
+
+
+.nav {
+  width: 100%;
+  background-color: var(--color2);
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  z-index: 999;
+
+
+}
+
+.nav .nav-brand {
+  margin-left: 1rem;
+}
+
+.nav .toggle {
+  margin-right: 1rem;
+  font-size: 2rem;
+  color: #f0f0f0;
+  transition: all 500ms;
+}
+
+.toggle.rotate {
+  transform: rotate(270deg);
+}
+
+.nav-menu-lg {
+  display: none;
+}
+
+.nav-menu {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--color2);
+  padding: 1.5rem;
+  position: fixed;
+  width: 90%;
+  height: 50%;
+  top: 4%;
+  transition: all 500ms;
+  transform: translateX(-1200px);
+  z-index: -999;
+  /* border-top: solid 1px #ffffff; */
+}
+
+.nav-menu.show {
+  width: 1;
+  transform: translateX(0);
+}
+
+.nav-menu .nav-item {
+  color: #f0f0f0;
+  width: 100%;
+}
+
+.clear {
+  padding: .8rem;
+  background: var(--color1);
+  border: none;
+  outline: none;
+  color: #fff;
+  transition: all 200ms;
+
+}
+
+.clear:active {
+  color: #e76565;
+  border: solid 1px #fff;
+}
+
+.nav-menu .nav-item:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+section {
+  /* min-height: 100%;
+  margin-bottom: -100px; */
+  min-height: calc(100vh - 70px);
 }
 
 .container {
-    max-width: 968px;
-    height: 100%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+  max-width: 968px;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
+
+
 #bookmark-form {
-    height: 35vh;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
+  margin-top: 0;
+  height: 35vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  margin-top: 5rem;
 
 }
 
 .form-group {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: none;
+  /* width: 50%; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: none;
 }
 
 .form-group label {
-    font-size: 1.4rem;
-    padding: 1rem;
-    font-weight: 500;
-    color: rgb(231, 101, 101);
+  font-size: 1.4rem;
+  padding: 1rem;
+  font-weight: 500;
+  color: rgb(231, 101, 101);
 }
 
 .form-group input {
-    padding: .65rem;
-    width: 100%;
-    border: solid 1px rgba(6, 251, 137);
-    outline: none;
+  padding: 0.65rem;
+  width: 100%;
+  border: solid 1px var(--color1);
+  outline: none;
 }
 
 .form-group button {
-    margin-top: 1rem;
-    background: none;
-    padding: .65rem;
-    width: 100%;
-    border: solid 1px rgba(6, 251, 137);
-    transition: all 200ms;
+  margin-top: 1rem;
+  background: none;
+  padding: 0.65rem;
+  width: 100%;
+  border: solid 1px var(--color1);
+  transition: all 200ms;
 }
 
 .form-group button:hover {
-    background: rgba(6, 251, 137);
-    color: salmon;
+  background: var(--color1);
+  color: #fff;
 }
 
 #bookmark {
-    height: 65vh;
-    /* margin-top: 2rem; */
-    width: 100%;
-    color: rgb(231, 101, 101);
-
+  /* height: 65vh; */
+  margin-top: 2rem;
+  min-height: 100%;
+  width: 100%;
+  color: rgb(231, 101, 101);
 }
 
 #bookmark ul {
-    height: 100vh;
+  height: auto;
+  width: 100vw;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
+  ;
+}
 
-    width: 100vw;
+#bookmark li:first-child {
+  margin-top: 1rem;
+}
+
+#bookmark li {
+  background-color: var(--color1);
+  padding: 2rem;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  width: 1;
+  overflow-x: auto;
+  height: auto;
+}
+
+#bookmark li p>.bookmark-link {
+  text-decoration: none;
+  display: block;
+  padding: 1rem 0;
+}
+
+footer {
+  width: 100%;
+  background-color: var(--color2);
+
+}
+
+footer h4 {
+  padding: 1.5rem;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+}
+
+@media (min-width:500px) {
+  .nav-menu {
+
+    top: 4%;
+
+
+  }
+}
+
+@media (min-width:768px) {
+  .nav-menu {
+
+    width: 100%;
+    height: 50%;
+
+
+  }
+}
+
+@media (min-width:1000px) {
+  nav.nav {
+    padding: 1.5rem;
+  }
+
+  nav.nav .nav-menu-lg {
     list-style: none;
     display: flex;
-    flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
+  }
 
-}
+  nav.nav .nav-menu-lg .nav-item-lg {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
 
-#bookmark ul li {
-    background-color: rgba(6, 251, 137);
-    padding: 2rem;
-    /* padding: 1rem; */
-    margin-bottom: 1rem;
-    width: 90%;
-    height: auto;
-}
+  nav.nav .nav-menu-lg .nav-item-lg:last-child {
+    margin-right: 2.5rem;
+  }
 
-#bookmark ul li h4 {
-    margin-left: 1.3rem;
-    margin-bottom: 1rem;
+  .nav-menu {
 
-}
+    display: none;
+  }
 
-#bookmark ul li h4 .delete {
-    color: salmon;
-    font-size: 2rem;
-    position: relative;
-    float: right;
-    cursor: pointer;
-}
+  .toggle {
+    display: none;
+  }
 
-#bookmark ul li .bookmark-link {
-    margin-left: 1.4rem;
-
+  #bookmark-form {
+    margin-top: 6rem;
+  }
 }

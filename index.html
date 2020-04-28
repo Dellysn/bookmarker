@@ -15,39 +15,90 @@
     <title>BOOKMARKAR</title>
   </head>
   <body>
-    <div class="navigation">
-      <nav class="nav">
-        <a class="nav-brand">Home</a>
-        <ul class="nav-menu">
-          <li class="nav-item">Object Oriented Programming -JavaScript</li>
-          <li class="nav-item">Functional JavaScript</li>
-          <li class="nav-item">Examples</li>
-        </ul>
-      </nav>
-    </div>
-    <div class="container">
-      <div id="bookmark-form">
-        <div class="form-group">
-          <label for="name">Website Name:</label>
-          <input type="text" id="website-name" />
+    <nav class="nav">
+      <a class="nav-brand" href="index.html">BOOKMARKAR</a>
+
+      <div class="toggle">&#9776;</div>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="./main.js" target="_blank" download="download">
+            OOP SOURCECODE
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="./functional.js" target="_blank" download="download">
+            Functional Programming SOURCECODE
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="./functional.js" target="_blank">GitHub </a>
+        </li>
+        <li class="nav-item">
+          <button class="clear">Clear Bookmarks</button>
+        </li>
+      </ul>
+      <ul class="nav-menu-lg">
+        <li class="nav-item-lg">
+          <a href="./main.js" download> OOP SOURCECODE </a>
+        </li>
+        <li class="nav-item-lg">
+          <a href="./functional.js" download>
+            Functional Programming SOURCECODE
+          </a>
+        </li>
+        <li class="nav-item-lg">
+          <a href="#" target="_blank">GitHub </a>
+        </li>
+        <li class="nav-item-lg">
+          <button class="clear">Clear Bookmarks</button>
+        </li>
+      </ul>
+    </nav>
+    <section>
+      <div class="container">
+        <div id="bookmark-form">
+          <div class="form-group">
+            <label for="name">Website Name:</label>
+            <input type="text" id="website-name" />
+          </div>
+          <div class="form-group">
+            <label for="name">Website Url:</label>
+            <input type="text" id="website-url" />
+          </div>
+          <div class="form-group">
+            <button type="button" id="submit">Submit</button>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="name">Website Url:</label>
-          <input type="text" id="website-url" />
-        </div>
-        <div class="form-group">
-          <button type="button" id="submit">Submit</button>
-        </div>
-      </div>
-      <div>
+
         <h1>Bookmarks</h1>
         <hr />
         <ul id="bookmark"></ul>
       </div>
-    </div>
-
-    <div class="container"></div>
+    </section>
+    <footer>
+      <div class="container">
+        <h4>Created with ❤ by Isiaka Lukman Bamidele &copy; 2020</h4>
+      </div>
+    </footer>
     <!-- <script src="./main.js"></script> -->
     <script src="./functional.js"></script>
+    <script>
+      const toggleBtn = document.querySelector(".toggle");
+      toggleBtn.addEventListener(
+        "click",
+        function (e) {
+          if (!e.target) return false;
+          toggleBtn.classList.contains("rotate")
+            ? toggleBtn.classList.remove("rotate")
+            : toggleBtn.classList.add("rotate");
+          const navMenu = document.querySelector(".nav-menu");
+          navMenu.classList.contains("show")
+            ? navMenu.classList.remove("show")
+            : navMenu.classList.add("show");
+        },
+
+        false
+      );
+    </script>
   </body>
 </html>

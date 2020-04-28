@@ -38,7 +38,7 @@ let displayBookmarks = function (output) {
       return `
      <li>
      <h4> ${bookmark.websiteName}</h4>
-      <p> <a href="${bookmark.websiteUrl}"> ${bookmark.websiteUrl}</a></p>
+      <p> <a href="${bookmark.websiteUrl}" class="bookmark-link"> ${bookmark.websiteUrl}</a></p>
        <small> ${bookmark.savedOn}</small>
      </li>
           
@@ -55,6 +55,7 @@ let saveBookmarkToDatabase = function (bookmarks) {
   const data = JSON.parse(localStorage.getItem("bookmarks"));
 
   displayBookmarks(data);
+  window.location.href = "/";
 };
 let getFormInputs = function () {
   let websiteName = getValues("website-name");
@@ -69,12 +70,18 @@ let getFormInputs = function () {
   }
 };
 
-let connectForm = function (buttonID, eventHandler) {
+let clearBookmarks = function () {
+  if (localStorage.getItem("bookmarks")) {
+    localStorage.removeItem("bookmarks");
+    window.location.href = "/index.html";
+  } else {
+    return false;
+  }
+};
+let eventListener = function (buttonID, eventHandler) {
   let button = getElementById(buttonID);
   button.addEventListener("click", eventHandler, false);
 };
-connectForm("submit", getFormInputs);
-
 const loadBOokmarks = function () {
   let ul = document.querySelector("ul#bookmark");
 
@@ -104,3 +111,9 @@ const loadBOokmarks = function () {
   }
 };
 loadBOokmarks();
+eventListener("submit", getFormInputs);
+const clearBtn = document.querySelectorAll(".clear");
+clearBtn.forEach(function (clear) {
+  clear.addEventListener("click", clearBookmarks);
+});
+// eventListener("clear", clearBookmarks);
