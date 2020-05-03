@@ -33,8 +33,6 @@ Bookmarker.prototype.saveBookmarks = function (book) {
   bookmarkArray.push(bookmark);
   localStorage.setItem("bookmarks", JSON.stringify(bookmarkArray));
   JSON.parse(localStorage.getItem("bookmarks"));
-  // reload the window
-  window.location.href = "/";
 };
 UI.prototype.displayBookmarks = function () {
   /**
@@ -78,7 +76,6 @@ UI.prototype.clearBookmarks = function () {
   const data = JSON.parse(localStorage.getItem("bookmarks"));
   if (data) {
     localStorage.removeItem("bookmarks");
-    window.location.href = "/";
   } else {
     return false;
   }

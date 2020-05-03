@@ -60,7 +60,6 @@ let saveBookmarkToDatabase = function (bookmarks) {
   const data = JSON.parse(localStorage.getItem("bookmarks"));
 
   displayBookmarks(data);
-  window.location.href = "/";
 };
 let getFormInputs = function () {
   let websiteName = getValues("website-name");
@@ -78,7 +77,6 @@ let getFormInputs = function () {
 let clearBookmarks = function () {
   if (localStorage.getItem("bookmarks")) {
     localStorage.removeItem("bookmarks");
-    window.location.href = "/";
   } else {
     return false;
   }
