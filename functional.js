@@ -77,6 +77,7 @@ let getFormInputs = function () {
 let clearBookmarks = function () {
   if (localStorage.getItem("bookmarks")) {
     localStorage.removeItem("bookmarks");
+    alert("Bookmarks removed! Reload.");
   } else {
     return false;
   }
